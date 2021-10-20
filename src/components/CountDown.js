@@ -24,6 +24,8 @@ export const Countdown = ({
     })
   }
 
+  const [millis, setMillis] = useState(null);
+
   useEffect(() => {
     setMillis(minutesToMillis(minutes))
   }, [minutes])
@@ -45,10 +47,6 @@ export const Countdown = ({
 
     return () => clearInterval(interval.current);
   }, [isPaused])
-
-  const [millis, setMillis] = useState(minutesToMillis(minutes));
-
-  
 
   const formatTime = (time) => time <= 10 ? `0${time}` : time;
   const minute = Math.floor(millis / 1000 / 60) % 60;
